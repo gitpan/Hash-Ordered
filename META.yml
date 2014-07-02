@@ -1,0 +1,47 @@
+---
+abstract: 'A compact, pure-Perl ordered hash class'
+author:
+  - 'David Golden <dagolden@cpan.org>'
+build_requires:
+  ExtUtils::MakeMaker: '0'
+  File::Spec::Functions: '0'
+  Test::Deep: '0'
+  Test::FailWarnings: '0'
+  Test::Fatal: '0'
+  Test::More: '0.96'
+  version: '0'
+configure_requires:
+  ExtUtils::MakeMaker: '6.17'
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 5.019, CPAN::Meta::Converter version 2.141170'
+license: apache
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: '1.4'
+name: Hash-Ordered
+no_index:
+  directory:
+    - t
+    - xt
+    - examples
+    - corpus
+  package:
+    - DB
+provides:
+  Hash::Ordered:
+    file: lib/Hash/Ordered.pm
+    version: '0.001'
+requires:
+  Carp: '0'
+  List::Util: '1.09'
+  constant: '0'
+  overload: '0'
+  perl: '5.008'
+  strict: '0'
+  warnings: '0'
+resources:
+  bugtracker: https://github.com/dagolden/Hash-Ordered/issues
+  homepage: https://github.com/dagolden/Hash-Ordered
+  repository: https://github.com/dagolden/Hash-Ordered.git
+version: '0.001'
+x_authority: cpan:DAGOLDEN
