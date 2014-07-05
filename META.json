@@ -76,7 +76,7 @@
    "provides" : {
       "Hash::Ordered" : {
          "file" : "lib/Hash/Ordered.pm",
-         "version" : "0.001"
+         "version" : "0.002"
       }
    },
    "release_status" : "stable",
@@ -91,7 +91,7 @@
          "web" : "https://github.com/dagolden/Hash-Ordered"
       }
    },
-   "version" : "0.001",
+   "version" : "0.002",
    "x_authority" : "cpan:DAGOLDEN"
 }
 

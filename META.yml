@@ -30,7 +30,7 @@ no_index:
 provides:
   Hash::Ordered:
     file: lib/Hash/Ordered.pm
-    version: '0.001'
+    version: '0.002'
 requires:
   Carp: '0'
   List::Util: '1.09'
@@ -43,5 +43,5 @@ resources:
   bugtracker: https://github.com/dagolden/Hash-Ordered/issues
   homepage: https://github.com/dagolden/Hash-Ordered
   repository: https://github.com/dagolden/Hash-Ordered.git
-version: '0.001'
+version: '0.002'
 x_authority: cpan:DAGOLDEN

@@ -11,6 +11,7 @@ cpanfile
 devel/bench.pl
 dist.ini
 lib/Hash/Ordered.pm
+lib/Hash/Ordered/Benchmarks.pod
 perlcritic.rc
 t/00-report-prereqs.t
 t/basic.t

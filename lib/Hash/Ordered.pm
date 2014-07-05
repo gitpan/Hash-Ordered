@@ -4,7 +4,7 @@ use warnings;
 
 package Hash::Ordered;
 # ABSTRACT: A compact, pure-Perl ordered hash class
-our $VERSION = '0.001'; # VERSION
+our $VERSION = '0.002'; # VERSION
 
 use Carp ();
 use List::Util 1.09 ();
@@ -97,7 +97,8 @@ sub values {
 #pod
 #pod     $value = $oh->get("some key");
 #pod
-#pod Returns the value associated with the key.
+#pod Returns the value associated with the key, or C<undef> if it does not exist in
+#pod the hash.
 #pod
 #pod =cut
 
@@ -330,7 +331,7 @@ Hash::Ordered - A compact, pure-Perl ordered hash class
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 SYNOPSIS
 
@@ -410,7 +411,8 @@ will be returned for that value.
 
     $value = $oh->get("some key");
 
-Returns the value associated with the key.
+Returns the value associated with the key, or C<undef> if it does not exist in
+the hash.
 
 =head2 set
 
@@ -517,12 +519,13 @@ implementation, it seemed more complex than I though it needed, with an extra
 level of indirection that slows data access.
 
 Given that frustration, I started experimenting with the simplest thing I
-thought could work for an ordered hash.
+thought could work for an ordered hash: a hash of key-value pairs and an array
+with key order.
 
 As I worked on this, I also started searching for other modules doing similar
 things.  What I found fell broadly into two camps: modules based on tie (even
 if they offered an OO interface), and pure OO modules.  They all either lacked
-features I deemed necessary or else seemed overly complex in either
+features I deemed necessary or else seemed overly-complex in either
 implementation or API.
 
 Hash::Ordered attempts to find the sweet spot with simple implementation,
@@ -531,11 +534,14 @@ API.
 
 =head1 SEE ALSO
 
+This section describes other ordered-hash modules I found on CPAN.  For
+benchmarking results, see L<Hash::Ordered::Benchmarks>.
+
 =head2 Tie modules
 
 The following modules offer some sort of tie interface.  I don't like ties, in
 general, because of the extra indirection involved over a direct method call, but
-if that doesn't bother you, you might want to try one of these
+if you are willing to pay that penalty, you might want to try one of these.
 
 L<Tie::IxHash> is probably the most well known and includes an OO API.  If its
 warts and performance profile aren't a problem, it might serve.
@@ -544,8 +550,8 @@ L<Tie::LLHash> I haven't used, but the linked-list implementation might be
 worthwhile if you expect to do a lot of deletions.
 
 L<Tie::Hash::Indexed> is implemented in XS and thus seems promising if pure-Perl
-isn't a criterion, but last I looked, it had a lot of CPAN Testers failures,
-which lowers my trust in it.
+isn't a criterion; it often fails tests on Perl 5.18 and above due to the hash
+randomization change.
 
 These other modules have very specific designs/limitations and I didn't find
 any of them suitable for general purpose use:
@@ -585,7 +591,7 @@ access.
 
 These other modules have restrictions or particularly complicated
 implementations (often relying on C<tie>) and thus I didn't think any of them
-suitable for general purpose use:
+really suitable for use:
 
 =over 4
 
